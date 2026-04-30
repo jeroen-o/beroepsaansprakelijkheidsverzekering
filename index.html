@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#005AAA">
+<meta name="supported-color-schemes" content="light">
+<title>Beroepsaansprakelijkheids-verzekering.nl — voor financieel intermediairs</title>
+<meta name="description" content="Vergelijking, achtergrond en checklist rond de beroepsaansprakelijkheidsverzekering voor financieel intermediairs, hypotheek- en assurantieadviseurs.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Beroepsaansprakelijkheids-verzekering.nl
+   Kleurenpalet voor financieel intermediairs
+═══════════════════════════════════════════════════════════════════════ */
+:root {
+  /* Primair — corporate blauw voor financieel intermediairs */
+  --navy:       #005AAA;
+  --navy-dk:    #003D73;   /* donkerder voor topbar en hover */
+  --navy-lt:    #0E73C7;   /* lichter voor accenten */
+  --teal:       #4A90D9;   /* zachter middenblauw */
+  --sky:        #8DB9E6;   /* zeer licht blauw (logo highlight) */
+
+  /* Accenten */
+  --accent:     #C8932E;   /* warme accent voor CTA — contrast met blauw */
+  --accent-lt:  #E5B759;
+
+  /* Neutraal */
+  --bg:         #FFFFFF;
+  --bg-soft:    #F4F7FB;   /* lichte blauwe tint voor alt secties */
+  --bg-alt:     #E6EFF8;
+  --text:       #15283F;
+  --text-soft:  #465768;
+  --muted:      #6B7A8E;
+  --border:     #D5E0EC;
+  --border-lt:  #E7EDF5;
+
+  /* Semantisch */
+  --ok:         #1A6B35;
+  --ok-bg:      #E8F4EC;
+  --warn:       #7D5A00;
+  --warn-bg:    #FDF6E0;
+  --bad:        #8B1515;
+  --bad-bg:     #FCECEA;
+
+  /* Typografie */
+  --ff-body:    'Source Sans 3', -apple-system, 'Segoe UI', system-ui, sans-serif;
+  --ff-display: 'Source Serif 4', 'Source Sans 3', Georgia, serif;
+
+  /* Layout */
+  --container:  1160px;
+  --radius:     8px;
+  --radius-lg:  14px;
+  --shadow-sm:  0 1px 3px rgba(0,90,170,.08);
+  --shadow:     0 4px 18px rgba(0,90,170,.10);
+  --shadow-lg:  0 10px 40px rgba(0,90,170,.14);
+}
+
+/* ── RESET ────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+  /* Force light mode — dit voorkomt dat browsers in dark mode de paginakleuren
+     omkeren waardoor zwarte tekst op een zwarte achtergrond verschijnt. */
+  color-scheme: light;
+  background: #FFFFFF;
+}
+body {
+  font-family: var(--ff-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Voorkom dat dark-mode op iOS Safari kleuren forceert */
+  forced-color-adjust: none;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--navy); text-decoration: none; transition: color .15s; }
+a:hover { color: var(--accent); }
+button { font-family: inherit; cursor: pointer; }
+
+.container { max-width: var(--container); margin: 0 auto; padding: 0 28px; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TOPBAR — dunne balk bovenaan met contact / vertrouwens-info
+═══════════════════════════════════════════════════════════════════════ */
+.topbar {
+  background: var(--navy-dk);
+  color: rgba(255,255,255,.8);
+  font-size: 13px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.topbar-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.topbar a { color: rgba(255,255,255,.85); }
+.topbar a:hover { color: var(--accent-lt); }
+.topbar-sep {
+  width: 1px; height: 14px;
+  background: rgba(255,255,255,.2);
+}
+.topbar .ic {
+  font-size: 11px;
+  margin-right: 5px;
+  opacity: .7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HEADER — logo + horizontale navigatie, sticky
+═══════════════════════════════════════════════════════════════════════ */
+.header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 0 rgba(0,90,170,.04);
+}
+.header-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+.logo {
+  display: block;
+  flex-shrink: 0;
+  text-decoration: none;
+  line-height: 1.1;
+}
+.brand-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.brand-name {
+  font-family: var(--ff-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -.2px;
+  line-height: 1.05;
+}
+.brand-tld {
+  color: var(--accent);
+  font-weight: 600;
+}
+.brand-tag {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.logo:hover .brand-name { color: var(--navy-lt); }
+.logo:hover .brand-tld { color: var(--accent-lt); }
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.main-nav a {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text);
+  padding: 9px 14px;
+  border-radius: 6px;
+  letter-spacing: .2px;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.main-nav a:hover {
+  background: var(--bg-soft);
+  color: var(--navy);
+}
+.main-nav a.cta {
+  background: var(--navy);
+  color: #fff;
+  margin-left: 8px;
+  padding: 10px 20px;
+}
+.main-nav a.cta:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  width: 42px; height: 38px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 1px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════════════════ */
+.hero {
+  background:
+    linear-gradient(135deg, rgba(0,90,170,.94) 0%, rgba(0,61,115,.90) 100%),
+    radial-gradient(circle at 80% 20%, rgba(74,144,217,.5), transparent 50%);
+  background-color: var(--navy);
+  color: #fff;
+  padding: 72px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 460px; height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,147,46,.12), transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -180px; left: -80px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(141,177,212,.10), transparent 60%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 2; }
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-lt);
+  padding: 6px 14px;
+  border: 1px solid rgba(229,183,89,.3);
+  border-radius: 4px;
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.12;
+  letter-spacing: -.5px;
+  max-width: 820px;
+  margin-bottom: 18px;
+}
+.hero-sub {
+  font-size: 18px;
+  max-width: 620px;
+  color: rgba(255,255,255,.82);
+  line-height: 1.55;
+  margin-bottom: 32px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  transition: all .15s;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background: var(--accent-lt);
+  border-color: var(--accent-lt);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,.35);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.6);
+  color: #fff;
+}
+.btn-solid {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.btn-solid:hover {
+  background: var(--navy-lt);
+  border-color: var(--navy-lt);
+  color: #fff;
+}
+.btn-outline {
+  background: #fff;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-outline:hover {
+  background: var(--navy);
+  color: #fff;
+}
+.btn .arr { transition: transform .2s; }
+.btn:hover .arr { transform: translateX(3px); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════════════════════════════════ */
+section { scroll-margin-top: 110px; }
+.section {
+  padding: 76px 0;
+  position: relative;
+  background: #FFFFFF;
+  color: var(--text);
+}
+.section.alt { background: var(--bg-soft); color: var(--text); }
+.section.dark { background: var(--navy); color: #fff; }
+.section.dark a { color: var(--accent-lt); }
+
+.section-head {
+  max-width: 740px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.section-head.left {
+  margin-left: 0; margin-right: auto;
+  text-align: left;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 30px;
+}
+.eyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 22px; height: 1.5px;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+.section-head h2 {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -.3px;
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+.section.dark .section-head h2 { color: #fff; }
+.section-head p {
+  font-size: 17px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+.section.dark .section-head p { color: rgba(255,255,255,.78); }
+
+/* ── Helper: twee kolommen ─────────────────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.two-col h2 {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.22;
+  color: var(--navy);
+  margin-bottom: 20px;
+  letter-spacing: -.2px;
+}
+.two-col p {
+  font-size: 16px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.two-col p:last-child { margin-bottom: 0; }
+.small { font-size: 13.5px; color: var(--muted); }
+.small a { color: var(--navy); font-weight: 500; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CERTIFICAAT VISUAL
+═══════════════════════════════════════════════════════════════════════ */
+.cert-card {
+  background: linear-gradient(135deg, #fff 0%, #fafbfc 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--teal) 50%, var(--accent) 100%);
+}
+.cert-ribbon {
+  width: 64px; height: 64px;
+  margin: 8px auto 16px;
+  display: block;
+}
+.cert-title {
+  font-family: var(--ff-display);
+  font-size: 13px;
+  text-align: center;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.cert-name {
+  font-family: var(--ff-display);
+  font-size: 18px;
+  text-align: center;
+  color: var(--navy);
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 0 12px 14px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 14px;
+}
+.cert-tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cert-tag {
+  font-size: 10.5px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.cert-tag::before {
+  content: '●';
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   STEPS (01/02/03)
+═══════════════════════════════════════════════════════════════════════ */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 12px;
+}
+.step {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 26px 28px;
+  position: relative;
+  transition: all .2s;
+}
+.step:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+.step-num {
+  font-family: var(--ff-display);
+  font-size: 42px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 14px;
+  display: block;
+}
+.step h3 {
+  font-family: var(--ff-display);
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: -.1px;
+}
+.step p {
+  font-size: 14.5px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CALLOUT — tip/waarschuwing blokjes
+═══════════════════════════════════════════════════════════════════════ */
+.callout {
+  display: flex;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: var(--radius);
+  border-left: 4px solid;
+  margin: 22px 0;
+}
+.callout-icon {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+}
+.callout-body { flex: 1; }
+.callout-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.callout-body p {
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+}
+.cal-tip  { background: var(--ok-bg);  border-color: var(--ok);  color: var(--ok); }
+.cal-warn { background: var(--warn-bg); border-color: var(--warn); color: var(--warn); }
+.cal-info { background: var(--bg-alt); border-color: var(--navy); color: var(--navy); }
+.cal-tip .callout-icon  { background: var(--ok);  color: #fff; }
+.cal-warn .callout-icon { background: var(--warn); color: #fff; }
+.cal-info .callout-icon { background: var(--navy); color: #fff; }
+.cal-tip p, .cal-warn p, .cal-info p { color: inherit; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ERROR-404 card (software-fouten visual)
+═══════════════════════════════════════════════════════════════════════ */
+.error-card {
+  background: linear-gradient(135deg, #1a1829 0%, #2d2847 50%, #1f1a3a 100%);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-lg);
+  padding: 38px 32px;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-lg);
+}
+.error-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,255,255,.02) 3px, rgba(255,255,255,.02) 4px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(255,255,255,.02) 3px, rgba(255,255,255,.02) 4px);
+  pointer-events: none;
+}
+.error-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,.5) 100%);
+  pointer-events: none;
+}
+.err-404 {
+  font-family: var(--ff-display);
+  font-size: 72px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  background: linear-gradient(180deg, #ff3e6c 0%, #d62d56 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+  animation: glitch 3.5s infinite;
+  text-shadow: 2px 0 0 rgba(0,200,255,.4);
+}
+.err-label {
+  background: rgba(0,0,0,.5);
+  color: #0ff;
+  font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+  font-size: 11px;
+  padding: 5px 12px;
+  border: 1px solid rgba(0,255,255,.3);
+  border-radius: 3px;
+  letter-spacing: 2px;
+  z-index: 2;
+  position: relative;
+}
+.err-msg {
+  color: rgba(255,255,255,.65);
+  font-size: 13px;
+  z-index: 2;
+  font-family: ui-monospace, monospace;
+  text-align: center;
+}
+@keyframes glitch {
+  0%, 92%, 100% { transform: translate(0); }
+  93% { transform: translate(-2px, 1px); }
+  94% { transform: translate(2px, -1px); }
+  95% { transform: translate(-1px, 0); }
+  96% { transform: translate(0, 1px); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BRON-CARDS (software fouten sectie)
+═══════════════════════════════════════════════════════════════════════ */
+.bron-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 36px;
+}
+.bron {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 26px;
+  transition: all .2s;
+}
+.bron:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow);
+}
+.bron-kind {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  background: var(--warn-bg);
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 14px;
+}
+.bron h3 {
+  font-family: var(--ff-display);
+  font-size: 21px;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.bron-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.bron-meta strong { color: var(--navy); font-weight: 600; }
+.bron-links {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.bron-link {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--navy);
+  padding: 7px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  transition: all .15s;
+}
+.bron-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.bron-note {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   VERGELIJKINGSTABEL
+═══════════════════════════════════════════════════════════════════════ */
+.legenda {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  justify-content: center;
+  font-size: 13.5px;
+  color: var(--text-soft);
+}
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.leg-sym {
+  width: 26px; height: 26px;
+  border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+.leg-ja   { background: var(--ok-bg);   color: var(--ok); }
+.leg-deel { background: var(--warn-bg); color: var(--warn); }
+.leg-nee  { background: var(--bad-bg);  color: var(--bad); }
+
+.tabel-wrap {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-hint {
+  display: none;
+}
+.vgl-tabel {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+.vgl-tabel thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 18px 14px 16px;
+  text-align: center;
+  font-weight: 600;
+  vertical-align: bottom;
+  border-right: 1px solid rgba(255,255,255,.10);
+  font-size: 14px;
+}
+.vgl-tabel thead th:first-child {
+  text-align: left;
+  padding-left: 24px;
+  border-right: 2px solid var(--accent);
+  min-width: 220px;
+}
+.vgl-tabel thead th:last-child { border-right: none; }
+.vgl-tabel .th-name {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.vgl-tabel .th-sub {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--accent-lt);
+  margin-top: 3px;
+  letter-spacing: .3px;
+}
+.vgl-tabel tbody tr {
+  border-bottom: 1px solid var(--border-lt);
+  transition: background .12s;
+}
+.vgl-tabel tbody tr:last-child { border-bottom: none; }
+.vgl-tabel tbody tr:hover { background: var(--bg-soft); }
+.vgl-tabel td.label {
+  padding: 18px 20px 18px 24px;
+  border-right: 2px solid var(--accent);
+}
+.vgl-tabel .prod-name {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.vgl-tabel .prod-sub {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: .2px;
+}
+.vgl-tabel td.sym {
+  text-align: center;
+  padding: 14px 10px;
+  border-right: 1px solid var(--border-lt);
+}
+.vgl-tabel td.sym:last-child { border-right: none; }
+.sym-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform .12s;
+  cursor: help;
+}
+.sym-box:hover { transform: scale(1.15); }
+.s-ja   { background: var(--ok-bg);   color: var(--ok); }
+.s-deel { background: var(--warn-bg); color: var(--warn); }
+.s-nee  { background: var(--bad-bg);  color: var(--bad); }
+
+/* Verzekeraar kaarten onder tabel */
+.aanb-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+.aanb {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all .2s;
+}
+.aanb:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.aanb-hd {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 16px 12px;
+  border-bottom: 3px solid var(--accent);
+}
+.aanb-name { font-size: 13px; font-weight: 700; line-height: 1.3; }
+.aanb-body { padding: 14px 16px 16px; }
+.aanb-link {
+  font-size: 12.5px;
+  color: var(--navy);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+.aanb-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: .3px;
+}
+.tag-ja   { background: var(--ok-bg);   color: var(--ok); }
+.tag-deel { background: var(--warn-bg); color: var(--warn); }
+.tag-nee  { background: var(--bad-bg);  color: var(--bad); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CHECKLIST
+═══════════════════════════════════════════════════════════════════════ */
+.progress-bar {
+  position: sticky;
+  top: 80px;
+  z-index: 80;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+  margin: 0 0 28px;
+  box-shadow: var(--shadow-sm);
+  display: none;
+}
+.progress-bar.active { display: block; }
+.progress-bar-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.progress-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.progress-track {
+  flex: 1;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--accent));
+  transition: width .3s;
+  width: 0%;
+}
+.progress-pct {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 36px;
+  text-align: right;
+}
+.btn-sm {
+  padding: 7px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn-sm:hover { border-color: var(--navy); color: var(--navy); }
+.btn-sm.primary {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.btn-sm.primary:hover { background: var(--navy-dk); color: #fff; }
+
+.check-sectie {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.check-sectie-hd {
+  background: #fff;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: background .12s;
+}
+.check-sectie-hd:hover { background: var(--bg-soft); }
+.check-sectie.open .check-sectie-hd {
+  border-bottom-color: var(--border);
+  background: var(--bg-soft);
+}
+.cs-num {
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-display);
+  font-size: 17px;
+  font-weight: 600;
+}
+.cs-titel { flex: 1; }
+.cs-titel h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.cs-titel span {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.cs-score {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--warn-bg);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.cs-chev {
+  color: var(--muted);
+  font-size: 14px;
+  transition: transform .2s;
+  flex-shrink: 0;
+}
+.check-sectie.open .cs-chev { transform: rotate(180deg); color: var(--accent); }
+.check-sectie-body {
+  display: none;
+  padding: 8px 24px 24px;
+}
+.check-sectie.open .check-sectie-body { display: block; }
+.sub-titel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 20px 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: .2px;
+}
+.sub-titel::before {
+  content: '';
+  display: block;
+  width: 3px; height: 14px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  transition: background .1s;
+}
+.check-item:hover { background: var(--bg-soft); }
+.check-item.checked { background: var(--ok-bg); }
+.check-item input {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--ok);
+  cursor: pointer;
+}
+.check-tekst {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  flex: 1;
+}
+.check-item.checked .check-tekst {
+  color: var(--ok);
+  text-decoration: line-through;
+  text-decoration-color: rgba(26,107,53,.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   AFM / VERZEKERINGEN OVERZICHT
+═══════════════════════════════════════════════════════════════════════ */
+.verzek-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-top: 12px;
+}
+.verzek {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px 26px;
+  position: relative;
+  transition: all .2s;
+  border-top: 4px solid var(--navy);
+}
+.verzek:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+  border-top-color: var(--accent);
+}
+.verzek-num {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  font-family: var(--ff-display);
+  font-size: 32px;
+  line-height: 1;
+  color: var(--bg-alt);
+  font-weight: 600;
+}
+.verzek h3 {
+  font-family: var(--ff-display);
+  font-size: 19px;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding-right: 40px;
+}
+.verzek .acro {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+.verzek p {
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   AFM SHIELD — decorative SVG wrapper
+═══════════════════════════════════════════════════════════════════════ */
+.afm-visual {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.afm-logo {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  position: relative;
+}
+.afm-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: none;
+}
+.shield {
+  position: relative;
+  width: 140px; height: 170px;
+  z-index: 2;
+}
+.shield-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-lt) 100%);
+  clip-path: path('M 70 0 L 140 25 L 140 95 Q 140 135 70 170 Q 0 135 0 95 L 0 25 Z');
+  box-shadow: 0 8px 30px rgba(200,147,46,.4);
+}
+.shield-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--ff-display);
+  font-size: 28px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════════════════════════════════ */
+.final-cta {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dk) 100%);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,147,46,.08), transparent 60%);
+}
+.final-cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.final-cta h2 {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #fff;
+}
+.final-cta p {
+  font-size: 17px;
+  color: rgba(255,255,255,.8);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+.final-cta .hero-ctas { justify-content: center; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════════════════ */
+.footer {
+  background: var(--navy-dk);
+  color: rgba(255,255,255,.78);
+  padding: 60px 0 0;
+  font-size: 14.5px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 44px;
+}
+.footer-col h4 {
+  color: #fff;
+  font-family: var(--ff-display);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: .3px;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.footer-brand-name {
+  font-family: var(--ff-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -.2px;
+}
+.footer-brand-tld {
+  color: var(--accent-lt);
+}
+.footer-brand-tag {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,.55);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.footer p { line-height: 1.7; color: rgba(255,255,255,.7); }
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 9px; }
+.footer a {
+  color: rgba(255,255,255,.75);
+  transition: color .12s;
+}
+.footer a:hover { color: var(--accent-lt); }
+.footer-address {
+  font-style: normal;
+  line-height: 1.8;
+  color: rgba(255,255,255,.7);
+}
+.footer-address a { color: rgba(255,255,255,.85); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 22px 0;
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CONTACT SECTION + FORM
+═══════════════════════════════════════════════════════════════════════ */
+.contact-section {
+  background: var(--bg-soft);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: start;
+}
+.contact-text {
+  padding-top: 4px;
+}
+.contact-text h2 {
+  font-family: var(--ff-display);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -.2px;
+  color: var(--navy);
+  margin-bottom: 14px;
+}
+.contact-text p {
+  font-size: 16px;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+.contact-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-bullets li {
+  font-size: 14px;
+  color: var(--text-soft);
+  padding: 8px 0 8px 28px;
+  position: relative;
+  line-height: 1.5;
+}
+.contact-bullets li::before {
+  content: '✓';
+  color: var(--ok);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.contact-form-wrap {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+.contact-form .form-row {
+  margin-bottom: 16px;
+}
+.contact-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+  letter-spacing: .2px;
+}
+.contact-form .req {
+  color: var(--accent);
+  margin-left: 2px;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 11px 14px;
+  font-family: var(--ff-body);
+  font-size: 15px;
+  color: var(--text);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  transition: border-color .15s, box-shadow .15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.contact-form select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3e%3cpath fill='%235A6A7E' d='M6 8L0 0h12z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(0,90,170,.15);
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 130px;
+  font-family: var(--ff-body);
+  line-height: 1.5;
+}
+.contact-form button[type="submit"] {
+  width: 100%;
+  justify-content: center;
+  margin-top: 6px;
+  cursor: pointer;
+  font-family: var(--ff-body);
+}
+.contact-form button[type="submit"]:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+/* Honeypot */
+.contact-form .honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-feedback {
+  margin-top: 18px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-left: 4px solid;
+}
+.form-feedback.success {
+  background: var(--ok-bg);
+  color: var(--ok);
+  border-color: var(--ok);
+}
+.form-feedback.error {
+  background: var(--bad-bg);
+  color: var(--bad);
+  border-color: var(--bad);
+}
+.form-feedback strong { display: block; margin-bottom: 2px; }
+.privacy-note {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET (≤960px)
+═══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .hero h1 { font-size: 36px; }
+  .section-head h2 { font-size: 28px; }
+  .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .two-col.reverse .col-visual { order: -1; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .bron-grid { grid-template-columns: 1fr; }
+  .aanb-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-toggle { display: flex; }
+  .main-nav {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    background: #fff;
+    padding: 16px;
+    gap: 4px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    display: none;
+  }
+  .main-nav.open { display: flex; }
+  .main-nav a {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+  .main-nav a.cta {
+    margin-left: 0;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  /* Contact form */
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-text h2 { font-size: 26px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — PHONE (≤620px)
+═══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 620px) {
+  /* Scroll-padding kleiner op mobiel (sticky header is kleiner) */
+  html { scroll-padding-top: 80px; }
+  section { scroll-margin-top: 80px; }
+
+  /* Container & sections */
+  .container { padding: 0 16px; }
+  .section { padding: 48px 0; }
+
+  /* Topbar — verticaal stapelen op mobiel zodat alles zichtbaar is */
+  .topbar { font-size: 12px; padding: 8px 0; }
+  .topbar-inner {
+    justify-content: center;
+    gap: 6px 14px;
+    flex-wrap: wrap;
+  }
+  .topbar-sep { display: none; }
+  .topbar-inner > span,
+  .topbar-inner > a {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  /* Header */
+  .header-inner { padding: 12px 16px; gap: 12px; }
+  .brand-name { font-size: 14px; }
+  .brand-tag { font-size: 9.5px; letter-spacing: .8px; }
+  .nav-toggle { width: 40px; height: 36px; }
+
+  /* Hero */
+  .hero { padding: 44px 0 56px; }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 5px 12px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 26px;
+    line-height: 1.18;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+  .hero-sub { font-size: 15px; line-height: 1.5; }
+  .hero-ctas { flex-direction: column; gap: 10px; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+
+  /* Section heads */
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { font-size: 24px; line-height: 1.22; }
+  .section-head p { font-size: 15px; }
+  .eyebrow { font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; }
+
+  /* Two-col text */
+  .two-col h2 { font-size: 24px; }
+  .two-col p { font-size: 15px; }
+
+  /* Steps */
+  .step { padding: 24px 22px 22px; }
+  .step-num { font-size: 36px; }
+  .step h3 { font-size: 18px; }
+
+  /* Verzekeringen cards */
+  .verzek-grid { grid-template-columns: 1fr; gap: 14px; }
+  .verzek { padding: 24px 20px 22px; }
+  .verzek h3 { font-size: 18px; padding-right: 36px; }
+  .verzek-num { font-size: 28px; top: 18px; right: 18px; }
+
+  /* Bron cards */
+  .bron { padding: 22px 20px 20px; }
+  .bron h3 { font-size: 18px; }
+  .bron-links { flex-direction: column; align-items: stretch; }
+  .bron-link { text-align: center; }
+
+  /* Error 404 visual */
+  .error-card { padding: 28px 20px; min-height: 220px; }
+  .err-404 { font-size: 52px; }
+  .err-msg { font-size: 11px; }
+
+  /* AFM visual */
+  .afm-visual { padding: 36px 24px; min-height: 200px; }
+  .afm-logo { max-width: 180px; }
+
+  /* Legenda — verticaal op mobiel, breekt nu niet meer kapot */
+  .legenda {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 18px;
+    font-size: 13px;
+  }
+  .leg-item { width: 100%; }
+
+  /* Tabel — horizontale scroll met duidelijke hint */
+  .vergelijking-wrap {
+    margin-top: 8px;
+    position: relative;
+  }
+  .scroll-hint {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: .3px;
+  }
+  .tabel-wrap {
+    border-radius: var(--radius);
+    box-shadow: 0 2px 12px rgba(0,90,170,.10);
+    /* Subtiele schaduw aan de rechterkant om aan te geven dat er meer is */
+    background:
+      linear-gradient(to right, #fff 30%, rgba(255,255,255,0)),
+      linear-gradient(to right, rgba(0,90,170,0), rgba(0,90,170,.08) 70%) 100% 0,
+      #fff;
+    background-repeat: no-repeat;
+    background-size: 40px 100%, 14px 100%;
+    background-attachment: local, scroll;
+  }
+  .vgl-tabel { min-width: 600px; }
+  .vgl-tabel thead th {
+    padding: 12px 6px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .vgl-tabel thead th:first-child {
+    padding-left: 14px;
+    min-width: 150px;
+    width: 150px;
+    /* Sticky eerste kolom zodat je de verzekeringsnaam ziet bij scrollen */
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--navy);
+    box-shadow: 4px 0 6px -2px rgba(0,0,0,.10);
+  }
+  .vgl-tabel thead th:not(:first-child) {
+    min-width: 90px;
+    width: 90px;
+  }
+  .vgl-tabel .th-name {
+    font-size: 11.5px;
+    line-height: 1.2;
+  }
+  .vgl-tabel .th-sub {
+    font-size: 9.5px;
+    margin-top: 2px;
+  }
+  .vgl-tabel td.label {
+    padding: 12px 10px;
+    /* Sticky eerste kolom in body */
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: #fff;
+    box-shadow: 4px 0 6px -2px rgba(0,0,0,.06);
+  }
+  .vgl-tabel tbody tr:hover td.label,
+  .vgl-tabel tbody tr td.label { background: #fff; }
+  .vgl-tabel .prod-name { font-size: 12.5px; line-height: 1.25; }
+  .vgl-tabel .prod-sub { font-size: 10px; }
+  .vgl-tabel td.sym { padding: 10px 6px; }
+  .sym-box { width: 32px; height: 32px; font-size: 15px; }
+
+  /* Aanbieder cards */
+  .aanb-grid { grid-template-columns: 1fr; gap: 10px; }
+  .aanb-hd { padding: 12px 14px 10px; }
+  .aanb-name { font-size: 13px; }
+  .aanb-body { padding: 12px 14px 14px; }
+
+  /* Checklist */
+  .check-sectie-hd {
+    padding: 14px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cs-num { width: 32px; height: 32px; font-size: 15px; }
+  .cs-titel {
+    flex: 1 1 calc(100% - 90px);
+    min-width: 0;
+  }
+  .cs-titel h3 { font-size: 14.5px; line-height: 1.25; }
+  .cs-titel span { font-size: 11.5px; line-height: 1.3; }
+  .cs-score {
+    font-size: 11px;
+    padding: 3px 8px;
+    flex-shrink: 0;
+  }
+  .cs-chev { flex-shrink: 0; }
+  .check-sectie-body { padding: 6px 14px 18px; }
+  .sub-titel { font-size: 12.5px; margin: 16px 0 6px; }
+  .check-item { padding: 10px 10px; gap: 10px; }
+  .check-tekst { font-size: 13.5px; line-height: 1.45; }
+  .check-item input { width: 20px; height: 20px; }
+
+  /* Progress bar */
+  .progress-bar-inner { padding: 0 16px; gap: 10px; flex-wrap: wrap; }
+  .progress-label { font-size: 12px; }
+  .progress-track { min-width: 100px; }
+  .btn-sm { padding: 6px 10px; font-size: 11.5px; }
+
+  /* Final CTA */
+  .final-cta h2 { font-size: 24px; }
+  .final-cta p { font-size: 15px; margin-bottom: 24px; }
+
+  /* Footer */
+  .footer { padding: 44px 0 0; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
+  .footer-col h4 { font-size: 15px; margin-bottom: 12px; }
+  .footer-col p, .footer li, .footer-address { font-size: 14px; }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+
+  /* Contact */
+  .contact-text h2 { font-size: 22px; }
+  .contact-text p { font-size: 15px; }
+  .contact-form-wrap { padding: 22px 18px; }
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select { font-size: 16px; padding: 11px 12px; }
+
+  /* Callouts */
+  .callout { padding: 14px 16px; gap: 12px; }
+  .callout-title { font-size: 13px; }
+  .callout-body p { font-size: 13px; }
+}
+
+/* Heel kleine telefoons (≤380px) */
+@media (max-width: 380px) {
+  .container { padding: 0 12px; }
+  .hero h1 { font-size: 22px; }
+  .section-head h2 { font-size: 22px; }
+  .brand-name { font-size: 13px; }
+}
+
+/* Print */
+@media print {
+  .topbar, .header, .hero, .final-cta, .footer, .progress-bar,
+  .btn, .nav-toggle { display: none !important; }
+  body { background: #fff; }
+  .section { padding: 20px 0; break-inside: avoid; }
+  .check-sectie { break-inside: avoid; border: 1px solid #ccc; }
+  .check-sectie-body { display: block !important; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     TOPBAR
+═══════════════════════════════════════════════════════════════════════ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><span class="ic">🛡</span>Onafhankelijke informatie</span>
+    <span class="topbar-sep"></span>
+    <span><span class="ic">⚖</span>Wft &amp; BGfo conform</span>
+    <span class="topbar-sep"></span>
+    <a href="#contact"><span class="ic">✉</span>contact</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#home" class="logo">
+      <span class="brand-mark">
+        <span class="brand-name">Beroepsaansprakelijkheids-<wbr>verzekering<span class="brand-tld">.nl</span></span>
+        <span class="brand-tag">voor financieel intermediairs</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#home">Home</a>
+      <a href="#software-fouten">Software fouten</a>
+      <a href="#vergelijking">Vergelijking</a>
+      <a href="#verzekeringen">De 5 polissen</a>
+      <a href="#checklist">Checklist</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <span class="hero-eyebrow">Voor het intermediair · onafhankelijk</span>
+    <h1>Beroepsaansprakelijkheids&shy;verzekering voor tussenpersonen</h1>
+    <p class="hero-sub">De onafhankelijke vergelijkingssite voor het intermediair dat zichzelf wil verzekeren. Vergelijking, juridische achtergrond en een complete checklist op één plek.</p>
+    <div class="hero-ctas">
+      <a href="#vergelijking" class="btn btn-primary">Bekijk de vergelijking <span class="arr">→</span></a>
+      <a href="#checklist" class="btn btn-ghost">Gratis checklist <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     INTRO — Zekerheid voor jouw adviseurswerk
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text">
+        <span class="eyebrow">Waarom deze site</span>
+        <h2>Zekerheid voor jouw adviseurswerk</h2>
+        <p>Als tussenpersoon — of je nu financieel adviseur, assurantiebemiddelaar, makelaar of consultant bent — is jouw deskundigheid je grootste kapitaal. Toch zit een foutje in een klein hoekje. Een onvolledig advies, een gemiste deadline of een administratieve vergissing kan leiden tot flinke financiële claims van klanten.</p>
+        <p>Een goede beroepsaansprakelijkheidsverzekering (BAV) is daarom geen overbodige luxe, maar een absolute noodzaak. Het vinden van de juiste polis kan echter voelen als een doolhof. Precies daarvoor is <strong>Beroepsaansprakelijkheidsverzekering&shy;-tussenpersonen.nl</strong> in het leven geroepen.</p>
+        <p class="small">Beroepsaansprakelijkheids-verzekering.nl is dé onafhankelijke informatiebron voor financieel intermediairs die zich willen verzekeren.</p>
+      </div>
+      <div class="col-visual">
+        <div class="cert-card">
+          <svg class="cert-ribbon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="26" r="18" stroke="#C8932E" stroke-width="2" fill="#FDF6E0"/>
+            <circle cx="32" cy="26" r="13" stroke="#C8932E" stroke-width="1" fill="none"/>
+            <path d="M 32 14 L 34 21 L 41 21 L 35 25 L 37 32 L 32 28 L 27 32 L 29 25 L 23 21 L 30 21 Z" fill="#C8932E"/>
+            <path d="M 22 40 L 18 60 L 26 56 L 32 62 L 38 56 L 46 60 L 42 40 Z" fill="#005AAA" opacity=".85"/>
+          </svg>
+          <div class="cert-title">Certificaat</div>
+          <div class="cert-name">Beroepsaansprakelijkheids&shy;verzekering<br>voor tussenpersonen</div>
+          <div class="cert-tags">
+            <span class="cert-tag">Onafhankelijk</span>
+            <span class="cert-tag">Vergelijking</span>
+            <span class="cert-tag">Checklist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     3-STAPPEN — Eenvoudig en snel vergelijken
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">De aanpak</span>
+      <h2>Eenvoudig en snel vergelijken</h2>
+      <p>Het verzekeringslandschap is complex en de kleine lettertjes kunnen per aanbieder enorm verschillen. Op deze website maken we het ingewikkelde simpel.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Vergelijk álle verzekeringen</h3>
+        <p>Geen eindeloos gescroll door verschillende websites. Vind in één oogopslag het complete aanbod voor tussenpersonen — ­specifiek afgestemd op uw werk.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Vind direct de verschillen</h3>
+        <p>Geen enkele BAV is exact hetzelfde. Wij leggen de polissen naast elkaar en maken de verschillen glashelder: dekkingsomvang, inloop, uitloop en uitsluitingen.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Bespaar tijd en geld</h3>
+        <p>Door efficiënt te vergelijken ziet u in één oogopslag welke verzekeraar de beste prijs-kwaliteitverhouding biedt voor uw specifieke situatie.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 44px;">
+      <a href="#vergelijking" class="btn btn-solid">Bekijk de vergelijking <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SOFTWARE FOUTEN — kernrisico sectie
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="software-fouten">
+  <div class="container">
+    <div class="two-col reverse">
+      <div class="col-text">
+        <span class="eyebrow">⚠ Kernrisico 2026</span>
+        <h2>Dekking softwarefouten BAV? Bent u wel verzekerd?</h2>
+        <p>Automatisering maakt het werk van de moderne tussenpersoon efficiënter en sneller. Maar wat als de techniek u in de steek laat? Een rekenfout in de software van een verkeerde datakoppeling kan leiden tot verkeerd advies en grote schadeclaims.</p>
+        <p>Hier schuilt een groot gevaar: veel standaard beroepsaansprakelijkheidsverzekeringen (BAV) bieden slechts een beperkte dekking voor softwarefouten. Zodra de fout technisch van aard is, geven veel verzekeraars <strong>niet thuis</strong>.</p>
+      </div>
+      <div class="col-visual">
+        <div class="error-card">
+          <div class="err-label">▲ CRITICAL EXCEPTION</div>
+          <div class="err-404">ERROR 404</div>
+          <div class="err-msg">SYSTEM FAILURE ·· BUG DETECTED<br>DEPENDENCY NOT FOUND</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bron-grid">
+      <div class="bron">
+        <span class="bron-kind">Artikel</span>
+        <h3>Fouten in software gebruikt door assurantietussenpersonen: wie is aansprakelijk?</h3>
+        <div class="bron-meta">VAST 2025 / P-041</div>
+        <p style="font-size:14px; color:var(--text-soft); line-height:1.6;">Een juridische verdieping in de vraag wie er opdraait bij een softwarefout die leidt tot schade bij klanten van de assurantietussenpersoon.</p>
+        <div class="bron-links">
+          <a class="bron-link" href="https://drive.google.com/file/d/1OdpVHzOpM7k7zUzuj20NfXpGgaHs2NfQ/view" target="_blank" rel="noopener">Lees het artikel <span class="arr">→</span></a>
+        </div>
+      </div>
+
+      <div class="bron">
+        <span class="bron-kind">Webinar</span>
+        <h3>Als de software faalt: wie betaalt de schade?</h3>
+        <div class="bron-meta"><strong>CGA-webinar</strong> · 17 maart 2026</div>
+        <p style="font-size:14px; color:var(--text-soft); line-height:1.6;">Mr. dr. Cees de Jong (voormalig hoofdredacteur VAST) in gesprek met Mr. dr. Noortje Lavrijssen (universitair hoofddocent Open Universiteit).</p>
+        <div class="bron-links">
+          <a class="bron-link" href="https://bureaudfobv.webinargeek.com/watch/replay/5837743/3c55ef8d142fc8e8eae00d8a3aecf81c/" target="_blank" rel="noopener">Bekijk webinar <span class="arr">→</span></a>
+          <a class="bron-link" href="https://drive.google.com/file/d/1H8xT-Gik-m5i9DYbzvPVA7M1j23eFWxw/view" target="_blank" rel="noopener">Bekijk sheets</a>
+        </div>
+        <div class="bron-note">Doorspoelen voor start naar 4:20 minuten.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     VERGELIJKINGSTABEL
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="section alt" id="vergelijking">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Dekkingsoverzicht</span>
+      <h2>Vergelijking van vijf aanbieders</h2>
+      <p>Vergelijking op vijf essentiële verzekeringen voor hypotheek- en assurantieadviseurs. Gebaseerd op openbaar beschikbare productinformatie.</p>
+    </div>
+
+    <div class="legenda">
+      <div class="leg-item"><div class="leg-sym leg-ja">✔</div><span>Zelfstandig product beschikbaar</span></div>
+      <div class="leg-item"><div class="leg-sym leg-deel">▶</div><span>Alleen als onderdeel van / add-on</span></div>
+      <div class="leg-item"><div class="leg-sym leg-nee">✖</div><span>Niet beschikbaar</span></div>
+    </div>
+
+    <span class="scroll-hint" aria-hidden="true">← swipe →</span>
+    <div class="tabel-wrap">
+      <table class="vgl-tabel">
+        <thead>
+          <tr>
+            <th><span class="th-name">Verzekering</span></th>
+            <th><span class="th-name">HDI Global</span><span class="th-sub">Global Specialty SE</span></th>
+            <th><span class="th-name">De Vereende</span><span class="th-sub">BAVAM-polis</span></th>
+            <th><span class="th-name">Markel</span><span class="th-sub">Nederland</span></th>
+            <th><span class="th-name">SiriusPro</span><span class="th-sub">Gevolmachtigde</span></th>
+            <th><span class="th-name">AIG</span><span class="th-sub">Europe S.A.</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label"><div class="prod-name">Aansprakelijkheidsverzekering</div><div class="prod-sub">AVB</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Aanvullend op BAV; kantoorrisico">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Standaard inbegrepen bij BAVAM-polis">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Aanvullend op BAV; maatwerk">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Optioneel naast BAV; incl. WEGAM/WEGAS">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Kantoorrisico als combinatie bij BAV">✔</div></td>
+          </tr>
+          <tr>
+            <td class="label"><div class="prod-name">Beroepsaansprakelijkheidsverzekering</div><div class="prod-sub">BAV</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Specialist FD sinds 1983; cyber-aansprakelijkheid standaard">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="BAVAM specialist voor intermediairs en makelaars">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Specifiek product assurantietussenpersonen; werelddekking excl. USA">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Collectief FD; JNPG-voorwaarden">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="AVF-formulier; fouten door onderaannemers incl. externe software gedekt">✔</div></td>
+          </tr>
+          <tr>
+            <td class="label"><div class="prod-name">Cyberverzekering</div><div class="prod-sub">Eigen schade + aansprakelijkheid</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Cyber+ zelfstandig + add-on op BAV v.a. €295/jaar">✔</div></td>
+            <td class="sym"><div class="sym-box s-nee" title="Geen eigen cyberverzekering bij De Vereende">✖</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Cyber 360; 7 rubrieken standaard; max €2.000.000">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Cyber-aansprakelijkheid gratis in BAV + optionele add-on">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="CyberEdge; First Response 24/7; werelddekking">✔</div></td>
+          </tr>
+          <tr>
+            <td class="label"><div class="prod-name">Bestuurdersaansprakelijkheid</div><div class="prod-sub">D&amp;O / BCA</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Volledig D&O product; geen eigen risico">✔</div></td>
+            <td class="sym"><div class="sym-box s-nee" title="Niet aangeboden">✖</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="Volledig D&O; vrije advocaatkeuze">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="BCA/D&O beschikbaar via SiriusPro">✔</div></td>
+            <td class="sym"><div class="sym-box s-ja" title="40+ jaar D&O ervaring; vrije advocaatkeuze">✔</div></td>
+          </tr>
+          <tr>
+            <td class="label"><div class="prod-name">Verhaalrechtsbijstand</div><div class="prod-sub">Verzekerd verweer</div></td>
+            <td class="sym"><div class="sym-box s-deel" title="Verzekerd Verweer via ARAG; add-on op BAV">▶</div></td>
+            <td class="sym"><div class="sym-box s-deel" title="Verweer + KiFiD inbegrepen in BAV">▶</div></td>
+            <td class="sym"><div class="sym-box s-deel" title="Vangnet voor Verweer = add-on op BAV">▶</div></td>
+            <td class="sym"><div class="sym-box s-deel" title="Eigen juristen inbegrepen bij BAV-collectief">▶</div></td>
+            <td class="sym"><div class="sym-box s-deel" title="Verweerkosten via BAV en D&O">▶</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="aanb-grid">
+      <div class="aanb">
+        <div class="aanb-hd"><div class="aanb-name">HDI Global Specialty SE</div></div>
+        <div class="aanb-body">
+          <a class="aanb-link" href="https://www.hdi.global/nl-nl" target="_blank" rel="noopener">hdi.global/nl-nl</a>
+          <div class="aanb-tags">
+            <span class="tag tag-ja">BAV</span><span class="tag tag-ja">Cyber+</span><span class="tag tag-ja">D&amp;O</span>
+          </div>
+        </div>
+      </div>
+      <div class="aanb">
+        <div class="aanb-hd"><div class="aanb-name">De Vereende — BAVAM</div></div>
+        <div class="aanb-body">
+          <a class="aanb-link" href="https://vereende.nl/bavam" target="_blank" rel="noopener">vereende.nl/bavam</a>
+          <div class="aanb-tags">
+            <span class="tag tag-ja">BAV</span><span class="tag tag-nee">Geen Cyber</span><span class="tag tag-nee">Geen D&amp;O</span>
+          </div>
+        </div>
+      </div>
+      <div class="aanb">
+        <div class="aanb-hd"><div class="aanb-name">Markel Nederland</div></div>
+        <div class="aanb-body">
+          <a class="aanb-link" href="https://www.markel.nl" target="_blank" rel="noopener">markel.nl</a>
+          <div class="aanb-tags">
+            <span class="tag tag-ja">BAV</span><span class="tag tag-ja">Cyber 360</span><span class="tag tag-ja">D&amp;O</span>
+          </div>
+        </div>
+      </div>
+      <div class="aanb">
+        <div class="aanb-hd"><div class="aanb-name">SiriusPro</div></div>
+        <div class="aanb-body">
+          <a class="aanb-link" href="https://siriuspro.nl/collectief-fd" target="_blank" rel="noopener">siriuspro.nl</a>
+          <div class="aanb-tags">
+            <span class="tag tag-ja">BAV collectief</span><span class="tag tag-ja">Cyber</span><span class="tag tag-ja">BCA</span>
+          </div>
+        </div>
+      </div>
+      <div class="aanb">
+        <div class="aanb-hd"><div class="aanb-name">AIG Europe S.A.</div></div>
+        <div class="aanb-body">
+          <a class="aanb-link" href="https://www.aiginsurance.nl" target="_blank" rel="noopener">aiginsurance.nl</a>
+          <div class="aanb-tags">
+            <span class="tag tag-ja">BAV</span><span class="tag tag-ja">CyberEdge</span><span class="tag tag-ja">D&amp;O 40jr</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     DE 5 VERZEKERINGEN
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="verzekeringen">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">De 5 polissen</span>
+      <h2>De vijf belangrijke verzekeringen</h2>
+      <p>Vijf polissen vormen samen een sluitende dekking voor uw adviespraktijk. Ieder beschermt een ander risico.</p>
+    </div>
+
+    <div class="verzek-grid">
+      <div class="verzek">
+        <span class="verzek-num">01</span>
+        <span class="acro">AVB</span>
+        <h3>Aansprakelijkheids&shy;verzekering</h3>
+        <p>Je kantoor is een bedrijf. Klanten komen op bezoek, medewerkers werken bij relaties, je huurt een pand. Als iemand struikelt over een losliggend snoer, is een AVB noodzaak — de BAV dekt deze zaak- en letselschade niet.</p>
+      </div>
+      <div class="verzek">
+        <span class="verzek-num">02</span>
+        <span class="acro">BAV</span>
+        <h3>Beroepsaansprakelijkheids&shy;verzekering</h3>
+        <p>Dé verzekering voor financieel adviseurs. Verplicht op grond van Wft en Bgfo. Dekt de financiële schade die een klant lijdt door verkeerd of onvolledig advies — van menselijke fouten tot softwarefouten. Let op de voorwaarden.</p>
+      </div>
+      <div class="verzek">
+        <span class="verzek-num">03</span>
+        <span class="acro">Cyber</span>
+        <h3>Cyberverzekering</h3>
+        <p>U bewaart gevoelige gegevens: BSN-nummers, inkomens, hypotheekdossiers. Als uw systeem gehackt wordt, is ransomware op je netwerk komt of als er door een laptop een datalek ontstaat, dekt de BAV niet, uw cyberpolis wél.</p>
+      </div>
+      <div class="verzek">
+        <span class="verzek-num">04</span>
+        <span class="acro">D&amp;O</span>
+        <h3>Bestuurders&shy;aansprakelijkheid</h3>
+        <p>Als DGA of directeur bent u onder omstandigheden persoonlijk aansprakelijk. Dat kan op basis van onbehoorlijk taakvervulling (art. 2:9 BW) of onrechtmatige daad (art. 6:162 BW). De drempel is hoog, de verweerkosten niet.</p>
+      </div>
+      <div class="verzek">
+        <span class="verzek-num">05</span>
+        <span class="acro">Verweer</span>
+        <h3>Verhaalrechtsbijstand</h3>
+        <p>Als adviseur wordt u soms aangesproken voor iets wat u niet of beperkt te verwijten valt — een fout in software van een leverancier, een onterechte klacht bij KiFiD. Dan wilt u zelf kunnen verdedigen zonder dat de advocaatkosten je al op de knieën dwingen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     AFM
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="section alt">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-visual">
+        <div class="afm-visual">
+          <img class="afm-logo" src="data:image/png;base64,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" alt="AFM — Autoriteit Financiële Markten">
+        </div>
+      </div>
+      <div class="col-text">
+        <span class="eyebrow">Wettelijk kader</span>
+        <h2>Wat zegt de AFM?</h2>
+        <p>Als u bemiddelt en/of adviseert in hypothecair krediet of advieseert en/of orders doorgeeft in deelnemingsrechten in beleggingsfondsen (nationaal regime), moet u een beroepsaansprakelijkheidsverzekering hebben.</p>
+        <p>U moet een beroepsaansprakelijkheidsverzekering afsluiten als u een vergunningaanvraag heeft ingediend of als u actief wilt worden als aangesloten onderneming.</p>
+        <p><strong>Polis van een collectieve vergunning:</strong> een aangesloten onderneming hoeft niet zelf dezelfde dekking te hebben als de collectieve vergunninghouder bij wie hij is aangesloten. De aangesloten onderneming hoeft enkel de activiteiten te verzekeren die de aangesloten onderneming verricht.</p>
+        <p class="small"><a href="https://www.afm.nl" target="_blank" rel="noopener">Meer informatie op afm.nl →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CHECKLIST — interactief
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="checklist">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Gratis checklist</span>
+      <h2>Checklist verzekeringen financieel intermediairs</h2>
+      <p>Gebruik deze checklist vóórdat u een offerte accepteert of een polis tekent. Uw voortgang wordt automatisch lokaal opgeslagen in uw browser.</p>
+    </div>
+
+    <div class="progress-bar" id="progressBar">
+      <div class="progress-bar-inner">
+        <span class="progress-label">Voortgang</span>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <span class="progress-pct" id="progressPct">0%</span>
+        <button class="btn-sm" id="btnReset">Wis alles</button>
+        <button class="btn-sm primary" id="btnPrint">🖨 Printen</button>
+      </div>
+    </div>
+
+    <!-- Sectie 1 : AVB -->
+    <div class="check-sectie open" data-sectie="1">
+      <div class="check-sectie-hd" onclick="toggleSec(this)">
+        <div class="cs-num">1</div>
+        <div class="cs-titel"><h3>Aansprakelijkheidsverzekering (AVB)</h3><span>Bedrijfsaansprakelijkheid voor kantoor en medewerkers</span></div>
+        <span class="cs-score" id="score-1">0 / 14</span>
+        <span class="cs-chev">▼</span>
+      </div>
+      <div class="check-sectie-body">
+        <div class="sub-titel">1.1 Dekkingsbereik</div>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is persoonsschade (letsel van bezoekers, klanten, medewerkers van derden) gedekt?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is zaakschade (beschadiging van eigendommen van derden) gedekt?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is gevolgschade van zaakschade meeverzekerd?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Zijn werknemers, uitzendkrachten en stagiaires meeverzekerd als veroorzakers?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is huurschade aan het kantoorpand gedekt?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is schade door vrijwilligers of oproepkrachten gedekt?</span></label>
+        <div class="sub-titel">1.2 Uitsluitingen</div>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Bevat de polis een uitsluiting voor opzet? Geldt die alleen voor de schadeveroorzaker of voor de hele polis?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is zuivere vermogensschade expliciet uitgesloten? Is dat logisch gezien u ook een BAV heeft?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Zijn er sectorspecifieke uitsluitingen die relevant zijn voor financieel advies?</span></label>
+        <div class="sub-titel">1.3 Verzekerd bedrag en eigen risico</div>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is het verzekerd bedrag per aanspraak voldoende gezien omzet en activiteiten?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is het verzekerd bedrag per jaar voldoende? (Let op: serieschade telt als één aanspraak.)</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is het eigen risico draagbaar bij een kleine claim?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is er een eigen risico-halvering bij schikking?</span></label>
+        <div class="callout cal-tip">
+          <span class="callout-icon">✓</span>
+          <div class="callout-body"><div class="callout-title">Let op: AVB en BAV vullen elkaar aan</div><p>De AVB dekt géén adviesclaims. Zorg dat de BAV aansluit op de AVB en dat er géén gaten zitten tussen de twee polissen voor grensgevallen.</p></div>
+        </div>
+        <label class="check-item"><input type="checkbox" data-s="1"><span class="check-tekst">Is gecontroleerd dat AVB en BAV op elkaar aansluiten zonder overlap of gat?</span></label>
+      </div>
+    </div>
+
+    <!-- Sectie 2 : BAV -->
+    <div class="check-sectie" data-sectie="2">
+      <div class="check-sectie-hd" onclick="toggleSec(this)">
+        <div class="cs-num">2</div>
+        <div class="cs-titel"><h3>Beroepsaansprakelijkheidsverzekering (BAV)</h3><span>Wettelijk verplicht op grond van Wft en BGfo</span></div>
+        <span class="cs-score" id="score-2">0 / 28</span>
+        <span class="cs-chev">▼</span>
+      </div>
+      <div class="check-sectie-body">
+        <div class="sub-titel">2.1 AFM-conformiteit</div>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Voldoet de polis aan de minimumeisen van de Wft en het BGfo voor het verzekerd bedrag?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Staat in de polisvoorwaarden expliciet dat de verzekerde bedragen voldoen aan AFM-vereisten?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Dekt de polis alle Wft-vergunningscategorieën die u bezit (hypotheken, verzekeringen, etc.)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is de verzekeraar geregistreerd bij de AFM als aanbieder voor deze doelgroep?</span></label>
+        <div class="sub-titel">2.2 Definitie beroepsfout &amp; softwarefouten</div>
+        <div class="callout cal-warn">
+          <span class="callout-icon">!</span>
+          <div class="callout-body"><div class="callout-title">Softwarefouten: altijd schriftelijk navragen</div><p>Controleer altijd schriftelijk of fouten veroorzaakt door software van derden (adviessoftware, CRM, polisbeheer) als beroepsfout onder de polis vallen. Een productkaart die dit niet uitsluit is onvoldoende zekerheid.</p></div>
+        </div>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Omvat de foutdefinitie: nalatigheid, vergissing, verzuim, onjuiste advisering én onachtzaamheid?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn fouten begaan door onderaannemers of ingehuurde derden meeverzekerd?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn fouten veroorzaakt door software van derden gedekt — schriftelijk bevestigd?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is er een expliciete software-uitsluiting in de polis? Zo ja: wat is de exacte formulering?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn freelancers en waarnemers die voor uw kantoor werken meeverzekerd?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn voormalige medewerkers meeverzekerd voor fouten tijdens hun dienstverband?</span></label>
+        <div class="sub-titel">2.3 Claims made en inloopdekking</div>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is de polis volledig claims made of beperkt claims made (fout én aanspraak tijdens looptijd)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is het inlooprisico standaard meeverzekerd (fouten vóór ingangsdatum)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is de inloopdekking onbeperkt in tijd, of begrensd tot een aantal jaren?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn er bekende aanspraken die de inloopdekking kunnen blokkeren?</span></label>
+        <div class="sub-titel">2.4 Uitloopdekking</div>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is er een uitloopdekking beschikbaar bij beëindiging van de polis?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is de uitloopdekking kosteloos voor voormalige verzekerden of bij staking?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Hoe lang duurt de uitloopdekking maximaal?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Wordt de uitloopdekking automatisch omgezet bij faillissement?</span></label>
+        <div class="sub-titel">2.5 Kosten en verweer</div>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn verweerkosten gedekt bóven op het verzekerd bedrag, of worden ze er van afgetrokken?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn bereddingskosten en reconstructiekosten gedekt?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is er een eigen risicoverlaging bij schikking?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Biedt de verzekeraar eigen juristen of schadespecialisten die direct ingeschakeld kunnen worden?</span></label>
+        <div class="sub-titel">2.6 Hoedanigheid en dekkingsbreedte</div>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Omvat de verzekerde hoedanigheid álle activiteiten die u uitvoert, ook nevenactiviteiten?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn particuliere IB-aangiftes gedekt indien u die doet?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Is het opstellen van draagplichtovereenkomsten en vergoedingsrechten gedekt?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Zijn werkzaamheden in het kader van het Nationaal Regime gedekt?</span></label>
+        <div class="sub-titel">2.7 Cyberdekking binnen de BAV</div>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Bevat de BAV standaard dekking voor aansprakelijkheid jegens derden na een cyberincident?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="2"><span class="check-tekst">Sluit de cyberdekking in de BAV aan op de afzonderlijke cyberverzekering zonder overlap of gat?</span></label>
+      </div>
+    </div>
+
+    <!-- Sectie 3 : CYBER -->
+    <div class="check-sectie" data-sectie="3">
+      <div class="check-sectie-hd" onclick="toggleSec(this)">
+        <div class="cs-num">3</div>
+        <div class="cs-titel"><h3>Cyberverzekering</h3><span>Eigen schade, aansprakelijkheid en bedrijfsschade</span></div>
+        <span class="cs-score" id="score-3">0 / 20</span>
+        <span class="cs-chev">▼</span>
+      </div>
+      <div class="check-sectie-body">
+        <div class="sub-titel">3.1 Dekkingsomvang</div>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis eigen schade (forensisch onderzoek, dataherstel, IT-herstel)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis aansprakelijkheid jegens derden bij datalek of beveiligingsincident?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis bedrijfsschade (omzetverlies bij systeemuitval)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis ransomware en cyberafpersing inclusief lossombetalingen?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis de kosten van de wettelijke meldplicht bij AP (AVG 72-uurtermijn)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis notificatie aan betrokkenen na een datalek?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis AVG-boetes opgelegd door de AP (voor zover wettelijk verzekerbaar)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis CEO-fraude en social engineering (ook buiten het netwerk)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis telefoonhacking (PBX-fraude)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Dekt de polis reputatieschade en PR-kosten na een incident?</span></label>
+        <div class="sub-titel">3.2 Oorzaak-vereisten</div>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Is een datalek gedekt ongeacht de oorzaak (ook menselijke fout of systeemfout)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Vereist de polis voor netwerkschade een kwaadaardige oorzaak? Acceptabel?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Is de dekking ook geldig bij cloudomgevingen en gehoste systemen?</span></label>
+        <div class="sub-titel">3.3 Incident response</div>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Is er een 24/7 telefonische noodhulplijn beschikbaar?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Is de noodhulplijn Nederlandstalig?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Heeft inschakeling van de responseorganisatie géén invloed op het eigen risico of de polislimiet?</span></label>
+        <div class="sub-titel">3.4 Relatie met BAV-cyberdekking</div>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Is beroepsaansprakelijkheid uitdrukkelijk uitgesloten van de cyberverzekering?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Welke polis is primair bij een claim die zowel beroepsfout als cyberincident omvat?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Is er geen samenloopclausule die beide polissen naar elkaar verwijst bij dezelfde schade?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="3"><span class="check-tekst">Is het verzekerd bedrag voldoende gezien het aantal verwerkte persoonsgegevens?</span></label>
+      </div>
+    </div>
+
+    <!-- Sectie 4 : D&O -->
+    <div class="check-sectie" data-sectie="4">
+      <div class="check-sectie-hd" onclick="toggleSec(this)">
+        <div class="cs-num">4</div>
+        <div class="cs-titel"><h3>Bestuurdersaansprakelijkheid (D&amp;O / BCA)</h3><span>Bescherming privévermogen bestuurder, DGA, commissaris</span></div>
+        <span class="cs-score" id="score-4">0 / 18</span>
+        <span class="cs-chev">▼</span>
+      </div>
+      <div class="check-sectie-body">
+        <div class="callout cal-warn">
+          <span class="callout-icon">!</span>
+          <div class="callout-body"><div class="callout-title">Persoonlijke aansprakelijkheid vereist ernstig verwijt</div><p>Persoonlijke aansprakelijkheid op grond van art. 2:9 BW vereist 'ernstig verwijt'. De lat ligt hoog, maar de D&amp;O dekt de verweerkosten óók als die drempel uiteindelijk niet gehaald wordt — en juist die kosten kunnen enorm oplopen.</p></div>
+        </div>
+        <div class="sub-titel">4.1 Wie zijn verzekerd?</div>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Zijn alle bestuurders, commissarissen en toezichthouders meeverzekerd?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Zijn medebeleidsbepalers (feitelijk leidinggevenden) meeverzekerd?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Is de DGA als enig bestuurder/aandeelhouder gedekt — ook bij claims van de BV zelf?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Zijn voormalige bestuurders gedekt voor fouten tijdens hun bestuursperiode?</span></label>
+        <div class="sub-titel">4.2 Gedekte aanspraken</div>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Dekt de polis onbehoorlijke taakvervulling (art. 2:9 BW)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Dekt de polis aanspraken op basis van onrechtmatige daad (art. 6:162 BW)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Dekt de polis aanspraken van aandeelhouders bij verkeerde bestuursbeslissingen?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Dekt de polis aanspraken van crediteuren bij faillissement?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Dekt de polis onderzoeken door AFM, Belastingdienst of andere toezichthouders?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Dekt de polis kosten van een tuchtrechtelijke of strafrechtelijke procedure?</span></label>
+        <div class="sub-titel">4.3 Verweer en advocaatkeuze</div>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Zijn verweerkosten gedekt vóór een uitspraak, vanaf de eerste ingebrekestelling?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Is er vrije advocaatkeuze, of wijst de verzekeraar de advocaat aan?</span></label>
+        <div class="sub-titel">4.4 Dekkingssystematiek</div>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Geldt er géén eigen risico op de D&amp;O-polis?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Wat is de uitlooptermijn na aftreden als bestuurder?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Is de D&amp;O-polis afzonderlijk van de BAV gestructureerd?</span></label>
+        <div class="sub-titel">4.5 D&amp;O en softwarefouten als bestuursrisico</div>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Heeft u als DGA aantoonbare due diligence gedaan bij de keuze van softwarepakketten?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Zijn beslissingen over softwarekeuze en ICT-beveiliging vastgelegd in bestuursbesluiten?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="4"><span class="check-tekst">Is er een IT-beveiligingsbeleid binnen het kantoor dat aantoonbaar wordt nageleefd?</span></label>
+      </div>
+    </div>
+
+    <!-- Sectie 5 : VERHAAL -->
+    <div class="check-sectie" data-sectie="5">
+      <div class="check-sectie-hd" onclick="toggleSec(this)">
+        <div class="cs-num">5</div>
+        <div class="cs-titel"><h3>Verhaalrechtsbijstand / Verzekerd verweer</h3><span>Juridische bijstand bij verweer én actief verhaal</span></div>
+        <span class="cs-score" id="score-5">0 / 13</span>
+        <span class="cs-chev">▼</span>
+      </div>
+      <div class="check-sectie-body">
+        <div class="callout cal-warn">
+          <span class="callout-icon">!</span>
+          <div class="callout-body"><div class="callout-title">Geen zelfstandig product bij de vijf aanbieders</div><p>Niet alle BAV-verzekeraars bieden een volledig zelfstandig verhaaldrechtsbijstandsproduct. Voor actief verhaal op een softwareleverancier of andere derde heeft u mogelijk een apart product nodig.</p></div>
+        </div>
+        <div class="sub-titel">5.1 Verweer (defensief)</div>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Zijn verweerkosten bij een aansprakelijkstelling gedekt in de BAV?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Zijn verweerkosten bij KiFiD-klachten gedekt?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Zijn verweerkosten bij tuchtrechtprocedures gedekt?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Stelt de verzekeraar juridisch specialisten beschikbaar, ook onder het eigen risico?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Kunt u vóór een formele aansprakelijkstelling contact opnemen voor juridisch advies?</span></label>
+        <div class="sub-titel">5.2 Actief verhaal (offensief)</div>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Is er een aanvullende rechtsbijstandsverzekering afgesloten naast de BAV?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Dekt de rechtsbijstandsverzekering geschillen met softwareleveranciers?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Dekt de rechtsbijstandsverzekering geschillen met klanten over advieskwaliteit?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Is er een wachttijd in de rechtsbijstandsverzekering voor nieuwe geschillen?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Is het dekkingsgebied van de rechtsbijstandsverzekering voldoende (NL, EU)?</span></label>
+        <div class="callout cal-tip">
+          <span class="callout-icon">✓</span>
+          <div class="callout-body"><div class="callout-title">Offensief en defensief zijn beide nodig</div><p>De verweercomponent in de BAV is defensief. Wilt u zelf de aanvaller zijn en regres nemen op uw softwareleverancier? Dan heeft u een aparte rechtsbijstandsverzekering nodig.</p></div>
+        </div>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Is de samenwerking tussen BAV-verzekeraar en rechtsbijstandsverzekeraar helder bij een geschil met een softwareleverancier?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="5"><span class="check-tekst">Zijn de kosten van de rechtsbijstandsverzekering opgenomen in de jaarbegroting?</span></label>
+      </div>
+    </div>
+
+    <!-- Sectie 6 : ALGEMEEN -->
+    <div class="check-sectie" data-sectie="6">
+      <div class="check-sectie-hd" onclick="toggleSec(this)">
+        <div class="cs-num">6</div>
+        <div class="cs-titel"><h3>Algemene aandachtspunten</h3><span>Polisvorming, acceptatie, mededelingsplicht, samenloop</span></div>
+        <span class="cs-score" id="score-6">0 / 17</span>
+        <span class="cs-chev">▼</span>
+      </div>
+      <div class="check-sectie-body">
+        <div class="sub-titel">6.1 Polisvorming en documentatie</div>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Heeft u de volledige polisvoorwaarden ontvangen (niet alleen de productkaart)?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Heeft u de verzekeringskaart (IPID) ontvangen conform de IDD-verplichting?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Is het polisblad gecontroleerd op tenaamstelling, hoedanigheid en ingangsdatum?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Zijn alle medewerkers en bestuurders correct op het polisblad vermeld?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Zijn nevenactiviteiten expliciet op het polisblad vermeld?</span></label>
+        <div class="sub-titel">6.2 Acceptatievragen en mededelingsplicht</div>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Zijn alle acceptatievragen volledig en naar waarheid beantwoord?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Zijn alle relevante omstandigheden gemeld, ook zonder directe vraag?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Is het schadeverleden volledig opgegeven?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Zijn er géén bekende aanspraken of omstandigheden die vóór ingangsdatum speelden?</span></label>
+        <div class="sub-titel">6.3 Wijzigingen en jaarlijkse hertoets</div>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Is bekend welke wijzigingen in bedrijfsvoering direct gemeld moeten worden?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Zijn uitbreiding van activiteiten, nieuwe medewerkers en nieuwe locaties meldingsplichtig?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Is er een interne procedure voor tijdige melding van omstandigheden?</span></label>
+        <div class="sub-titel">6.4 Opzegging, overstap en samenloop</div>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Wat is de opzegtermijn en hoe is het inlooprisico geborgd bij overstap?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Worden bestaande polissen correct beëindigd vóórdat de nieuwe polis ingaat?</span></label>
+        <div class="callout cal-warn">
+          <span class="callout-icon">!</span>
+          <div class="callout-body"><div class="callout-title">Samenlooprisico bij meerdere polissen</div><p>Controleer samenloopclausules: als twee polissen dezelfde schade dekken, kan ieder verwijzen naar de ander. Leg dekkingsgrenzen en prioriteiten schriftelijk vast.</p></div>
+        </div>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Is gecontroleerd dat de vijf polissen elkaar aanvullen en géén samenloopconflicten bevatten?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Is de premie voor alle vijf verzekeringen opgenomen in de jaarbegroting?</span></label>
+        <label class="check-item"><input type="checkbox" data-s="6"><span class="check-tekst">Is er een jaarlijks gesprek gepland met de verzekeringsadviseur vóór de vervaldatum?</span></label>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════════════════════════════════ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <span class="eyebrow">Contact</span>
+        <h2>Vragen of opmerkingen?</h2>
+        <p>Heeft u een vraag over de vergelijking, de checklist of een ander onderwerp rond beroepsaansprakelijkheid voor financieel intermediairs? Stuur ons een bericht via onderstaand formulier.</p>
+        <ul class="contact-bullets">
+          <li>Reactie doorgaans binnen 1 à 2 werkdagen</li>
+          <li>Onafhankelijk &mdash; geen koppeling aan een specifieke verzekeraar</li>
+          <li>Uw gegevens worden alleen gebruikt om uw vraag te beantwoorden</li>
+        </ul>
+      </div>
+
+      <div class="contact-form-wrap">
+        <form id="contactForm" class="contact-form"
+              action="https://formsubmit.co/ajax/jeroen@oversteegen.nl"
+              method="POST">
+
+          <!-- FormSubmit configuratie -->
+          <input type="hidden" name="_subject" value="Bericht via Beroepsaansprakelijkheids-verzekering.nl">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+
+          <!-- Honeypot tegen bots -->
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form-row">
+            <label for="naam">Naam <span class="req">*</span></label>
+            <input type="text" id="naam" name="Naam" required autocomplete="name">
+          </div>
+
+          <div class="form-row">
+            <label for="email">E-mailadres <span class="req">*</span></label>
+            <input type="email" id="email" name="E-mail" required autocomplete="email">
+          </div>
+
+          <div class="form-row">
+            <label for="onderwerp">Onderwerp</label>
+            <select id="onderwerp" name="Onderwerp">
+              <option value="Algemene vraag">Algemene vraag</option>
+              <option value="Vraag over de vergelijking">Vraag over de vergelijking</option>
+              <option value="Vraag over de checklist">Vraag over de checklist</option>
+              <option value="Suggestie of correctie">Suggestie of correctie</option>
+              <option value="Anders">Anders</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="bericht">Bericht <span class="req">*</span></label>
+            <textarea id="bericht" name="Bericht" rows="5" required placeholder="Stel hier uw vraag of opmerking..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Verstuur bericht <span class="arr">→</span></button>
+
+          <div class="form-feedback" id="formFeedback" hidden role="status" aria-live="polite"></div>
+
+          <p class="privacy-note">Door dit formulier te verzenden gaat u ermee akkoord dat wij uw gegevens gebruiken om uw vraag te beantwoorden. Wij delen uw gegevens niet met derden.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="footer-brand-name">Beroepsaansprakelijkheids-<wbr>verzekering<span class="footer-brand-tld">.nl</span></span>
+          <span class="footer-brand-tag">voor financieel intermediairs</span>
+        </div>
+        <p>Onafhankelijk informatieplatform over de beroepsaansprakelijkheids&shy;verzekering voor hypotheek- en assurantieadviseurs. Vergelijking, achtergrond en checklist op één plek.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Op deze site</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#software-fouten">Software fouten</a></li>
+          <li><a href="#vergelijking">Vergelijking</a></li>
+          <li><a href="#verzekeringen">De 5 polissen</a></li>
+          <li><a href="#checklist">Checklist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Toezichthouders &amp; bronnen</h4>
+        <ul>
+          <li><a href="https://www.afm.nl" target="_blank" rel="noopener">AFM</a></li>
+          <li><a href="https://www.kifid.nl" target="_blank" rel="noopener">KiFiD</a></li>
+          <li><a href="https://www.adfiz.nl" target="_blank" rel="noopener">Adfiz</a></li>
+          <li><a href="https://wetten.overheid.nl/BWBR0020031" target="_blank" rel="noopener">Wft</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address class="footer-address">
+          Heeft u een vraag, suggestie of opmerking over deze site?<br><br>
+          <a href="#contact">Vul het contactformulier in &rarr;</a><br><br>
+          <a href="https://www.beroepsaansprakelijkheids-verzekering.nl" target="_blank" rel="noopener">www.beroepsaansprakelijkheids-verzekering.nl</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Beroepsaansprakelijkheids-verzekering.nl · Alle rechten voorbehouden</span>
+      <span>
+        <a href="#disclaimer">Disclaimer</a> ·
+        <a href="#privacy">Privacy &amp; cookies</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── Mobile nav toggle ───────────────────────────────────────────────
+  const toggle = document.getElementById('navToggle');
+  const nav    = document.getElementById('mainNav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => nav.classList.remove('open'))
+    );
+  }
+
+  // ── Collapsible checklist sections ──────────────────────────────────
+  window.toggleSec = function(hd) {
+    hd.closest('.check-sectie').classList.toggle('open');
+  };
+
+  // ── Checklist state ─────────────────────────────────────────────────
+  const STORAGE_KEY = 'bav_checklist_onepage_v1';
+
+  function save() {
+    const boxes = document.querySelectorAll('input[data-s]');
+    const data = {};
+    boxes.forEach((b,i) => data[i] = b.checked);
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+  }
+
+  function load() {
+    try {
+      const d = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      document.querySelectorAll('input[data-s]').forEach((b,i) => {
+        if (d[i]) {
+          b.checked = true;
+          b.closest('.check-item').classList.add('checked');
+        }
+      });
+    } catch(e) {}
+  }
+
+  function updateProgress() {
+    const all  = document.querySelectorAll('input[data-s]');
+    const done = document.querySelectorAll('input[data-s]:checked');
+    const pct  = all.length ? Math.round(done.length / all.length * 100) : 0;
+    const fill = document.getElementById('progressFill');
+    const pctE = document.getElementById('progressPct');
+    if (fill) fill.style.width = pct + '%';
+    if (pctE) pctE.textContent = pct + '%';
+    for (let n = 1; n <= 6; n++) {
+      const a = document.querySelectorAll('input[data-s="' + n + '"]');
+      const d = document.querySelectorAll('input[data-s="' + n + '"]:checked');
+      const e = document.getElementById('score-' + n);
+      if (e) e.textContent = d.length + ' / ' + a.length;
+    }
+  }
+
+  // ── Check-item click & change ───────────────────────────────────────
+  document.querySelectorAll('.check-item').forEach(item => {
+    item.addEventListener('change', e => {
+      if (e.target.type === 'checkbox') {
+        item.classList.toggle('checked', e.target.checked);
+        updateProgress();
+        save();
+      }
+    });
+  });
+
+  // ── Reset & print ───────────────────────────────────────────────────
+  const btnReset = document.getElementById('btnReset');
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      if (!confirm('Weet u zeker dat u alle vinkjes wilt wissen?')) return;
+      document.querySelectorAll('input[data-s]').forEach(b => {
+        b.checked = false;
+        b.closest('.check-item').classList.remove('checked');
+      });
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+      updateProgress();
+    });
+  }
+  const btnPrint = document.getElementById('btnPrint');
+  if (btnPrint) {
+    btnPrint.addEventListener('click', () => {
+      document.querySelectorAll('.check-sectie').forEach(s => s.classList.add('open'));
+      window.print();
+    });
+  }
+
+  // ── Sticky progress bar ONLY when in checklist section ──────────────
+  const checklistSection = document.getElementById('checklist');
+  const progressBar = document.getElementById('progressBar');
+  if (checklistSection && progressBar) {
+    window.addEventListener('scroll', () => {
+      const rect = checklistSection.getBoundingClientRect();
+      const inSection = rect.top < 200 && rect.bottom > 400;
+      progressBar.classList.toggle('active', inSection);
+    });
+  }
+
+
+  // ── Contactformulier (AJAX submit via FormSubmit.co) ───────────────
+  const cForm = document.getElementById('contactForm');
+  if (cForm) {
+    cForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fb = document.getElementById('formFeedback');
+      const btn = cForm.querySelector('button[type="submit"]');
+      const orig = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Versturen...';
+      fb.hidden = true;
+
+      try {
+        const data = new FormData(cForm);
+        const res = await fetch(cForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          fb.className = 'form-feedback success';
+          fb.innerHTML = '<strong>Bedankt!</strong>Uw bericht is verzonden. Wij nemen zo spoedig mogelijk contact met u op.';
+          fb.hidden = false;
+          cForm.reset();
+        } else {
+          throw new Error('Verzenden mislukt');
+        }
+      } catch (err) {
+        fb.className = 'form-feedback error';
+        fb.innerHTML = '<strong>Helaas mislukt.</strong>Er ging iets mis bij het verzenden. Probeer het later opnieuw.';
+        fb.hidden = false;
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = orig;
+      }
+    });
+  }
+
+  // ── Init ────────────────────────────────────────────────────────────
+  load();
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>
